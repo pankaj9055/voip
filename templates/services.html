@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}{{ content.title }} - VoipFit{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="page-title">{{ content.title }}</h1>
+                <p class="page-subtitle">{{ content.description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="service-content">
+                        <h4>{{ content.service1_title }}</h4>
+                        <p>{{ content.service1_desc }}</p>
+                        <a href="{{ url_for('main.contact') }}" class="service-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h4>{{ content.service2_title }}</h4>
+                        <p>{{ content.service2_desc }}</p>
+                        <a href="{{ url_for('main.contact') }}" class="service-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="service-content">
+                        <h4>{{ content.service3_title }}</h4>
+                        <p>{{ content.service3_desc }}</p>
+                        <a href="{{ url_for('main.contact') }}" class="service-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="service-content">
+                        <h4>{{ content.service4_title }}</h4>
+                        <p>{{ content.service4_desc }}</p>
+                        <a href="{{ url_for('main.contact') }}" class="service-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h4>{{ content.service5_title }}</h4>
+                        <p>{{ content.service5_desc }}</p>
+                        <a href="{{ url_for('main.contact') }}" class="service-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-support"></i>
+                    </div>
+                    <div class="service-content">
+                        <h4>{{ content.service6_title }}</h4>
+                        <p>{{ content.service6_desc }}</p>
+                        <a href="{{ url_for('main.contact') }}" class="service-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="process-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <h2 class="section-title">Our Process</h2>
+                <p class="section-subtitle">How we deliver exceptional VoIP solutions</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Consultation</h4>
+                    <p>We analyze your business needs and recommend the best VoIP solution for your requirements.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Design</h4>
+                    <p>Our experts design a customized VoIP infrastructure tailored to your business operations.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Implementation</h4>
+                    <p>We deploy and configure your VoIP system with minimal disruption to your business.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Support</h4>
+                    <p>Ongoing support and maintenance to ensure optimal performance and reliability.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,203 @@
+{% extends "admin/base.html" %}
+
+{% block page_title %}Telecom Settings{% endblock %}
+
+{% block content %}
+<div class="admin-content">
+    <div class="content-header">
+        <h2><i class="fas fa-phone-square-alt me-2"></i>Telecom Settings</h2>
+        <p>Manage VoipFit telecom statistics and contact information</p>
+    </div>
+
+    <div class="row">
+        <!-- Company Statistics -->
+        <div class="col-lg-6 mb-4">
+            <div class="admin-card">
+                <div class="card-header">
+                    <h5><i class="fas fa-chart-bar me-2"></i>Company Statistics</h5>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('admin.update_telecom_settings') }}">
+                        <div class="mb-3">
+                            <label for="stats_suppliers" class="form-label">
+                                <i class="fas fa-network-wired me-2"></i>Global Suppliers
+                            </label>
+                            <input type="text" class="form-control" id="stats_suppliers" name="stats_suppliers" 
+                                   value="{{ telecom_data.stats_suppliers }}" placeholder="e.g., 150+" required>
+                            <div class="form-text">Number of global suppliers/partners</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="stats_calls" class="form-label">
+                                <i class="fas fa-phone-volume me-2"></i>Monthly Calls
+                            </label>
+                            <input type="text" class="form-control" id="stats_calls" name="stats_calls" 
+                                   value="{{ telecom_data.stats_calls }}" placeholder="e.g., 5M+" required>
+                            <div class="form-text">Number of calls processed monthly</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="stats_established" class="form-label">
+                                <i class="fas fa-calendar-alt me-2"></i>Established Year
+                            </label>
+                            <input type="text" class="form-control" id="stats_established" name="stats_established" 
+                                   value="{{ telecom_data.stats_established }}" placeholder="e.g., 2018" required>
+                            <div class="form-text">Year company was established</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="stats_uptime" class="form-label">
+                                <i class="fas fa-shield-alt me-2"></i>Uptime SLA
+                            </label>
+                            <input type="text" class="form-control" id="stats_uptime" name="stats_uptime" 
+                                   value="{{ telecom_data.stats_uptime }}" placeholder="e.g., 99.9%" required>
+                            <div class="form-text">Service level agreement uptime</div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-2"></i>Update Statistics
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="col-lg-6 mb-4">
+            <div class="admin-card">
+                <div class="card-header">
+                    <h5><i class="fas fa-address-book me-2"></i>Contact Information</h5>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('admin.update_telecom_settings') }}">
+                        <div class="mb-3">
+                            <label for="contact_email" class="form-label">
+                                <i class="fas fa-envelope me-2"></i>Contact Email
+                            </label>
+                            <input type="email" class="form-control" id="contact_email" name="contact_email" 
+                                   value="{{ telecom_data.contact_email }}" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="contact_phone" class="form-label">
+                                <i class="fas fa-phone me-2"></i>Contact Phone
+                            </label>
+                            <input type="text" class="form-control" id="contact_phone" name="contact_phone" 
+                                   value="{{ telecom_data.contact_phone }}" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="contact_address" class="form-label">
+                                <i class="fas fa-map-marker-alt me-2"></i>Office Address
+                            </label>
+                            <textarea class="form-control" id="contact_address" name="contact_address" 
+                                      rows="3" required>{{ telecom_data.contact_address }}</textarea>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="contact_hours" class="form-label">
+                                <i class="fas fa-clock me-2"></i>Business Hours
+                            </label>
+                            <input type="text" class="form-control" id="contact_hours" name="contact_hours" 
+                                   value="{{ telecom_data.contact_hours }}" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-2"></i>Update Contact Info
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Preview -->
+    <div class="row">
+        <div class="col-12">
+            <div class="admin-card">
+                <div class="card-header">
+                    <h5><i class="fas fa-eye me-2"></i>Current Display Preview</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 text-center mb-3">
+                            <div class="stat-preview">
+                                <i class="fas fa-network-wired text-primary fs-2"></i>
+                                <h4 class="mt-2">{{ telecom_data.stats_suppliers }}</h4>
+                                <p class="text-muted">Global Suppliers</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-center mb-3">
+                            <div class="stat-preview">
+                                <i class="fas fa-phone-volume text-success fs-2"></i>
+                                <h4 class="mt-2">{{ telecom_data.stats_calls }}</h4>
+                                <p class="text-muted">Monthly Calls</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-center mb-3">
+                            <div class="stat-preview">
+                                <i class="fas fa-calendar-alt text-info fs-2"></i>
+                                <h4 class="mt-2">{{ telecom_data.stats_established }}</h4>
+                                <p class="text-muted">Established</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-center mb-3">
+                            <div class="stat-preview">
+                                <i class="fas fa-shield-alt text-warning fs-2"></i>
+                                <h4 class="mt-2">{{ telecom_data.stats_uptime }}</h4>
+                                <p class="text-muted">Uptime SLA</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-envelope me-2"></i>{{ telecom_data.contact_email }}</h6>
+                            <h6><i class="fas fa-phone me-2"></i>{{ telecom_data.contact_phone }}</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-map-marker-alt me-2"></i>{{ telecom_data.contact_address }}</h6>
+                            <h6><i class="fas fa-clock me-2"></i>{{ telecom_data.contact_hours }}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row">
+        <div class="col-12">
+            <div class="admin-card">
+                <div class="card-header">
+                    <h5><i class="fas fa-bolt me-2"></i>Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="{{ url_for('admin.company_info') }}" class="btn btn-outline-primary">
+                            <i class="fas fa-building me-2"></i>Company Information
+                        </a>
+                        <a href="{{ url_for('admin.images') }}" class="btn btn-outline-secondary">
+                            <i class="fas fa-images me-2"></i>Manage Carousel Images
+                        </a>
+                        <a href="{{ url_for('main.contact') }}" class="btn btn-outline-success" target="_blank">
+                            <i class="fas fa-external-link-alt me-2"></i>Preview Contact Page
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.stat-preview {
+    padding: 1rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+}
+</style>
+{% endblock %}

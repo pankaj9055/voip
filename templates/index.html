@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section with Carousel -->
+<section class="hero-section">
+    <div class="hero-carousel">
+        {% if carousel_images %}
+            {% for image in carousel_images %}
+                <div class="carousel-slide {% if loop.first %}active{% endif %}" data-bg="{{ image.image_url }}">
+                    <div class="carousel-overlay"></div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    
+    <div class="hero-content">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="hero-text fade-in-up">
+                        <h1 class="hero-title">{{ content.hero_title }}</h1>
+                        <p class="hero-subtitle">{{ content.hero_subtitle }}</p>
+                        <p class="hero-description">{{ content.hero_description }}</p>
+                        
+                        <div class="hero-actions">
+                            <a href="{{ url_for('main.services') }}" class="btn btn-primary btn-lg me-3">
+                                <i class="fas fa-rocket me-2"></i>Get Started
+                            </a>
+                            <a href="{{ url_for('main.contact') }}" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-phone me-2"></i>Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-arrow">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-target="{{ content.stats_countries.replace('+', '') }}">0</h3>
+                        <p class="stat-label">Global Suppliers</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-phone-volume"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-target="{{ content.stats_calls.replace('M+', '000000') }}">0</h3>
+                        <p class="stat-label">Monthly Calls</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-target="{{ content.stats_uptime }}">0</h3>
+                        <p class="stat-label">Established</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-target="{{ content.stats_customers.replace('%', '') }}">0</h3>
+                        <p class="stat-label">Uptime SLA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <h2 class="section-title">{{ features.section_title }}</h2>
+                <p class="section-subtitle">{{ features.section_subtitle }}</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>{{ features.feature1_title }}</h4>
+                    <p>{{ features.feature1_desc }}</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h4>{{ features.feature2_title }}</h4>
+                    <p>{{ features.feature2_desc }}</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </div>
+                    <h4>{{ features.feature3_title }}</h4>
+                    <p>{{ features.feature3_desc }}</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>{{ features.feature4_title }}</h4>
+                    <p>{{ features.feature4_desc }}</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>{{ features.feature5_title }}</h4>
+                    <p>{{ features.feature5_desc }}</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h4>{{ features.feature6_title }}</h4>
+                    <p>{{ features.feature6_desc }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="cta-title">{{ cta.title }}</h2>
+                <p class="cta-subtitle">{{ cta.subtitle }}</p>
+                <div class="cta-actions">
+                    <a href="{{ url_for('main.contact') }}" class="btn btn-primary btn-lg me-3">
+                        <i class="fas fa-rocket me-2"></i>Get Started Today
+                    </a>
+                    <a href="{{ url_for('main.services') }}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-info-circle me-2"></i>Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Initialize carousel and animations when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initCarousel();
+    initCounters();
+    initScrollAnimations();
+});
+</script>
+{% endblock %}

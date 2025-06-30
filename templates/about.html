@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}{{ content.title }} - VoipFit{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="page-title">{{ content.title }}</h1>
+                <p class="page-subtitle">{{ content.description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-content">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-6 mb-4">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>{{ content.mission }}</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>{{ content.vision }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="milestone-card">
+                    <div class="milestone-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="milestone-content">
+                        <h4>Founded</h4>
+                        <p class="milestone-value">{{ content.founded_year }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="milestone-card">
+                    <div class="milestone-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="milestone-content">
+                        <h4>Team Size</h4>
+                        <p class="milestone-value">{{ content.team_size }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="milestone-card">
+                    <div class="milestone-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="milestone-content">
+                        <h4>Experience</h4>
+                        <p class="milestone-value">{{ content.experience }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="values-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <h2 class="section-title">Our Values</h2>
+                <p class="section-subtitle">The principles that guide everything we do</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4>Trust</h4>
+                    <p>Building lasting relationships through transparency and reliability in every interaction.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4>Innovation</h4>
+                    <p>Continuously pushing boundaries to deliver cutting-edge communication solutions.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h4>Excellence</h4>
+                    <p>Striving for perfection in service delivery and customer satisfaction.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h4>Global Reach</h4>
+                    <p>Connecting businesses worldwide with seamless communication infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

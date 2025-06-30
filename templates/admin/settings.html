@@ -1,0 +1,89 @@
+{% extends "admin/base.html" %}
+
+{% block page_title %}Settings{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="admin-card">
+            <div class="card-header">
+                <h4><i class="fas fa-cog me-2"></i>Admin Settings</h4>
+            </div>
+            <div class="card-body">
+                <h5 class="mb-3">Change Password</h5>
+                <form method="POST" action="{{ url_for('admin.change_password') }}">
+                    <div class="mb-3">
+                        <label for="current_password" class="form-label">Current Password</label>
+                        <input type="password" class="form-control" id="current_password" name="current_password" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="new_password" class="form-label">New Password</label>
+                        <input type="password" class="form-control" id="new_password" name="new_password" required minlength="6">
+                        <div class="form-text">Password must be at least 6 characters long.</div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="confirm_password" class="form-label">Confirm New Password</label>
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required minlength="6">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-key me-2"></i>Change Password
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="admin-card mt-4">
+            <div class="card-header">
+                <h4><i class="fas fa-info-circle me-2"></i>System Information</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Admin Details</h6>
+                        <p><strong>Username:</strong> {{ current_user.username }}</p>
+                        <p><strong>Email:</strong> {{ current_user.email }}</p>
+                        <p><strong>Account Created:</strong> {{ current_user.created_at.strftime('%Y-%m-%d') }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Quick Links</h6>
+                        <div class="d-grid gap-2">
+                            <a href="{{ url_for('main.index') }}" class="btn btn-outline-primary btn-sm" target="_blank">
+                                <i class="fas fa-external-link-alt me-2"></i>View Website
+                            </a>
+                            <a href="{{ url_for('admin.dashboard') }}" class="btn btn-outline-info btn-sm">
+                                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Password confirmation validation
+document.getElementById('confirm_password').addEventListener('input', function() {
+    const newPassword = document.getElementById('new_password').value;
+    const confirmPassword = this.value;
+    
+    if (newPassword !== confirmPassword) {
+        this.setCustomValidity('Passwords do not match');
+    } else {
+        this.setCustomValidity('');
+    }
+});
+
+document.getElementById('new_password').addEventListener('input', function() {
+    const confirmPassword = document.getElementById('confirm_password');
+    if (confirmPassword.value) {
+        confirmPassword.dispatchEvent(new Event('input'));
+    }
+});
+</script>
+{% endblock %}
